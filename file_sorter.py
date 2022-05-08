@@ -10,8 +10,8 @@ path_to_files = path_for_test_files
 
 
 def move_file(root_path, el_full_name, el_path, content_type):
-	res = ""
-	dst_path = os.path.join(root_path, content_type)
+	result = ""
+	dst_path = os.path.join(root_path, content_type.capitalize())
 	dst_path = os.path.normpath(dst_path)
 	
 	if not os.path.exists(dst_path):
@@ -21,9 +21,9 @@ def move_file(root_path, el_full_name, el_path, content_type):
 	el_path_new = os.path.normpath(el_path_new)
 	
 	if not os.path.exists(el_path_new):
-		res = shutil.move(el_path, dst_path)
+		result = shutil.move(el_path, dst_path)
 
-	return res
+	return result
 
 
 def sort_files(root_path, file_extensions):
@@ -65,47 +65,47 @@ def sort_files(root_path, file_extensions):
 				
 				if el_sub_ext in file_extensions["books"]:
 					print("books")
-					res = move_file(root_path, el_full_name, el_path, "Books")
-					print(res)
+					result = move_file(root_path, el_full_name, el_path, "Books")
+					print(result)
 					continue
 			
-			res = move_file(root_path, el_full_name, el_path, "Archives")
-			print(res)
+			result = move_file(root_path, el_full_name, el_path, "Archives")
+			print(result)
 			
 		elif el_ext in file_extensions["soft"]:
 			print("soft")
-			res = move_file(root_path, el_full_name, el_path, "Soft")
-			print(res)
+			result = move_file(root_path, el_full_name, el_path, "Soft")
+			print(result)
 			
 		elif el_ext in file_extensions["books"]:
 			print("books")
-			res = move_file(root_path, el_full_name, el_path, "Books")
-			print(res)
+			result = move_file(root_path, el_full_name, el_path, "Books")
+			print(result)
 			
 		elif el_ext in file_extensions["docs_books"]:
 			print("docs_books")
-			res = move_file(root_path, el_full_name, el_path, "Docs_books")
-			print(res)
+			result = move_file(root_path, el_full_name, el_path, "Docs_books")
+			print(result)
 			
 		elif el_ext in file_extensions["images"]:
 			print("images")
-			res = move_file(root_path, el_full_name, el_path, "Images")
-			print(res)
+			result = move_file(root_path, el_full_name, el_path, "Images")
+			print(result)
 			
 		elif el_ext in file_extensions["torrents"]:
 			print("torrents")
-			res = move_file(root_path, el_full_name, el_path, "Torrents")
-			print(res)
+			result = move_file(root_path, el_full_name, el_path, "Torrents")
+			print(result)
 			
 		elif el_ext in file_extensions["audio"]:
 			print("audio")
-			res = move_file(root_path, el_full_name, el_path, "Audio")
-			print(res)
+			result = move_file(root_path, el_full_name, el_path, "Audio")
+			print(result)
 			
 		elif el_ext in file_extensions["video"]:
 			print("video")
-			res = move_file(root_path, el_full_name, el_path, "Video")
-			print(res)
+			result = move_file(root_path, el_full_name, el_path, "Video")
+			print(result)
 			
 		else:
 			print("Unknown file format!")

@@ -21,6 +21,10 @@ def create_files(root_path, files_count):
 	for i in range(files_count):
 		n = random.randint(1000, 1000000)
 		file_ext = random.choice(random.choice(file_extensions_list))
+		if file_ext == ".zip":
+			prefix = random.choice(["", ".fb2"])
+			file_ext = prefix + file_ext
+
 		file_name = "file_{0}{1}".format(str(i), file_ext)
 		file_path = os.path.join(root_path, file_name)
 		file_path = os.path.normpath(file_path)
