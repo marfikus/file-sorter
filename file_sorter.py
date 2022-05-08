@@ -1,6 +1,7 @@
 
 import os
 import shutil
+import datetime as dt
 
 from file_extensions import file_extensions
 from create_files_for_tests import path_for_test_files
@@ -112,4 +113,7 @@ def sort_files(root_path, file_extensions):
 	
 
 if __name__ == "__main__":
+	t1 = dt.datetime.today()
 	sort_files(path_to_files, file_extensions)
+	t2 = dt.datetime.today()
+	print(t2 - t1)

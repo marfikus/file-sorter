@@ -7,7 +7,7 @@ from file_extensions import file_extensions
 
 path_for_test_files = os.path.join(os.getcwd(), "for_tests")
 path_for_test_files = os.path.normpath(path_for_test_files)
-files_count = 100
+files_count = 1000
 
 
 file_extensions_list = [ file_extensions[key] for key in file_extensions.keys() ]
