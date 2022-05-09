@@ -55,61 +55,54 @@ def sort_files(root_path, file_extensions):
 		el_ext = el_ext.lower()
 		print(el_ext)
 
+
+		el_type = ""
+
 		if el_ext in file_extensions["archives"]:
-			print("archives")
+			el_type = "archives"
 			
 			# check on book (for example: *.fb2.zip)
 			el_sub_ext = os.path.splitext(el_name)[1]
 			if el_sub_ext != "":
+				print(el_type)
 				el_sub_ext = el_sub_ext.lower()
 				print(el_sub_ext)
 				
 				if el_sub_ext in file_extensions["books"]:
-					print("books")
-					result = move_file(root_path, el_full_name, el_path, "Books")
+					el_type = "books"
+					print(el_type)
+					result = move_file(root_path, el_full_name, el_path, el_type)
 					print(result)
 					continue
 			
-			result = move_file(root_path, el_full_name, el_path, "Archives")
-			print(result)
-			
 		elif el_ext in file_extensions["soft"]:
-			print("soft")
-			result = move_file(root_path, el_full_name, el_path, "Soft")
-			print(result)
+			el_type = "soft"
 			
 		elif el_ext in file_extensions["books"]:
-			print("books")
-			result = move_file(root_path, el_full_name, el_path, "Books")
-			print(result)
+			el_type = "books"
 			
 		elif el_ext in file_extensions["docs_books"]:
-			print("docs_books")
-			result = move_file(root_path, el_full_name, el_path, "Docs_books")
-			print(result)
+			el_type = "docs_books"
 			
 		elif el_ext in file_extensions["images"]:
-			print("images")
-			result = move_file(root_path, el_full_name, el_path, "Images")
-			print(result)
+			el_type = "images"
 			
 		elif el_ext in file_extensions["torrents"]:
-			print("torrents")
-			result = move_file(root_path, el_full_name, el_path, "Torrents")
-			print(result)
+			el_type = "torrents"
 			
 		elif el_ext in file_extensions["audio"]:
-			print("audio")
-			result = move_file(root_path, el_full_name, el_path, "Audio")
-			print(result)
+			el_type = "audio"
 			
 		elif el_ext in file_extensions["video"]:
-			print("video")
-			result = move_file(root_path, el_full_name, el_path, "Video")
-			print(result)
+			el_type = "video"
 			
 		else:
-			print("Unknown file format!")
+			print("Unknown file format! Skipped")
+
+		if el_type != "":
+			print(el_type)
+			result = move_file(root_path, el_full_name, el_path, el_type)
+			print(result)
 	
 
 if __name__ == "__main__":
