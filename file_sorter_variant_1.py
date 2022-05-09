@@ -6,31 +6,14 @@
 """
 
 import os
-import shutil
 import datetime as dt
 
 from file_extensions import file_extensions
 from create_files_for_tests import path_for_test_files
+from file_utils import move_file
 
 
 path_to_files = path_for_test_files
-
-
-def move_file(root_path, el_full_name, el_path, content_type):
-	result = ""
-	dst_path = os.path.join(root_path, content_type.capitalize())
-	dst_path = os.path.normpath(dst_path)
-	
-	if not os.path.exists(dst_path):
-		os.mkdir(dst_path)
-		
-	el_path_new = os.path.join(dst_path, el_full_name)
-	el_path_new = os.path.normpath(el_path_new)
-	
-	if not os.path.exists(el_path_new):
-		result = shutil.move(el_path, dst_path)
-
-	return result
 
 
 def sort_files(root_path, file_extensions):

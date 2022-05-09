@@ -5,12 +5,11 @@
 """
 
 import os
-import shutil
 import datetime as dt
 
 from file_extensions import file_extensions
 from create_files_for_tests import path_for_test_files
-from file_sorter_variant_1 import move_file
+from file_utils import move_file
 
 
 path_to_files = path_for_test_files
@@ -18,8 +17,7 @@ path_to_files = path_for_test_files
 
 def unite_all_extensions(file_extensions):
 	"""
-		Объединяет все категории в один словарь.
-		Получается структура вида: 
+		Объединяет все категории в один словарь вида:
 		{
 			".zip" : "archives",
 			".exe" : "soft",
