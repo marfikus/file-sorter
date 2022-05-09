@@ -1,6 +1,7 @@
 
 import random
 import os
+import shutil
 
 from file_extensions import file_extensions
 
@@ -22,8 +23,8 @@ def create_files(root_path, files_count):
 		n = random.randint(1000, 1000000)
 		file_ext = random.choice(random.choice(file_extensions_list))
 		if file_ext == ".zip":
-			prefix = random.choice(["", ".fb2"])
-			file_ext = prefix + file_ext
+			sub_ext = random.choice(["", ".fb2"])
+			file_ext = sub_ext + file_ext
 
 		file_name = "file_{0}{1}".format(str(i), file_ext)
 		file_path = os.path.join(root_path, file_name)
@@ -34,5 +35,12 @@ def create_files(root_path, files_count):
 			file.write(str(n))
 
 
+def delete_files(root_path):
+	if os.path.exists(root_path):
+		shutil.rmtree(root_path)
+
+
 if __name__ == "__main__":
+	delete_files(path_for_test_files)
+	# input("Press Enter for continue...")
 	create_files(path_for_test_files, files_count)

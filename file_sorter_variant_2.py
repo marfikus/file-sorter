@@ -53,23 +53,25 @@ def sort_files(root_path, file_extensions):
 		print(el_ext)
 		
 		if el_ext in united_file_extensions:
-			type = united_file_extensions[el_ext]
+			el_type = united_file_extensions[el_ext]
+			print(el_type)
 			
 			# check on book (for example: *.fb2.zip)
-			if type == "archives":
+			if el_type == "archives":
 				el_sub_ext = os.path.splitext(el_name)[1]
 				if el_sub_ext != "":
 					el_sub_ext = el_sub_ext.lower()
 					print(el_sub_ext)
 					
 					if el_sub_ext in united_file_extensions:
-						type = united_file_extensions[el_sub_ext]
+						el_type = united_file_extensions[el_sub_ext]
+						print(el_type)
 			
-			result = move_file(root_path, el_full_name, el_path, type)
+			result = move_file(root_path, el_full_name, el_path, el_type)
 			print(result)
 			
 		else:
-			print("Unknown file format!")
+			print("Unknown file format! Skipped")
 	
 
 if __name__ == "__main__":

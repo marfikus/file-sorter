@@ -54,7 +54,7 @@ def sort_files(root_path, file_extensions):
 		
 		el_ext = el_ext.lower()
 		print(el_ext)
-		
+
 		if el_ext in file_extensions["archives"]:
 			print("archives")
 			
