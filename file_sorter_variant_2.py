@@ -1,5 +1,8 @@
-# Экспериментальный вариант: сократил количество условий
-# Работает чуть дольше первого варианта
+"""
+	Более продвинутый вариант, поскольку может отделять не только *.fb2.zip,
+	но и другие архивы, благодаря тому, что перед началом работы преобразует 
+	словарь file_extensions (объединяет всё категории в один словарь).
+"""
 
 import os
 import shutil
@@ -7,13 +10,22 @@ import datetime as dt
 
 from file_extensions import file_extensions
 from create_files_for_tests import path_for_test_files
-from file_sorter import move_file
+from file_sorter_variant_1 import move_file
 
 
 path_to_files = path_for_test_files
 
 
 def unite_all_extensions(file_extensions):
+	"""
+		Объединяет все категории в один словарь.
+		Получается структура вида: 
+		{
+			".zip" : "archives",
+			".exe" : "soft",
+			...
+		}
+	"""
 	result = {}
 	for key in file_extensions.keys():
 		for el in file_extensions[key]:

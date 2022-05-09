@@ -1,3 +1,8 @@
+"""
+	Немного модифицированная версия первого варианта: 
+	заменил последовательные проверки на цикл и теперь нет зависимости 
+	от именования и количества ключей словаря file_extensions.
+"""
 
 import os
 import shutil
@@ -5,7 +10,7 @@ import datetime as dt
 
 from file_extensions import file_extensions
 from create_files_for_tests import path_for_test_files
-from file_sorter import move_file
+from file_sorter_variant_1 import move_file
 
 
 path_to_files = path_for_test_files
@@ -38,7 +43,6 @@ def sort_files(root_path, file_extensions):
 		
 		el_ext = el_ext.lower()
 		print(el_ext)
-		
 
 		result = "Unknown file format! Skipped"
 		for el_type in file_extensions:
